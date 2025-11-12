@@ -1,0 +1,700 @@
+{
+  "info": {
+    "name": "Hospital API - Colección",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección de Postman para Hospital API con ejemplos cURL por endpoint. Usa {{baseUrl}} = http://localhost:8080"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "API Info",
+      "item": [
+        {
+          "name": "Health",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/health" },
+          "event": [],
+          "description": "curl --request GET '{{baseUrl}}/api/health'"
+        },
+        {
+          "name": "Info",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/info" },
+          "description": "curl --request GET '{{baseUrl}}/api/info'"
+        }
+      ]
+    },
+
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"P001\",\n  \"name\": \"John Doe\",\n  \"age\": 35,\n  \"gender\": \"MALE\",\n  \"address\": \"Street 1\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/patients' \\\n--header 'Content-Type: application/json' \\\n--data '{\"id\":\"P001\",\"name\":\"John Doe\",\"age\":35,\"gender\":\"MALE\",\"address\":\"Street 1\"}'"
+        },
+        {
+          "name": "Create Patient - Maria Gomez",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"P002\",\n  \"name\": \"Maria Gomez\",\n  \"age\": 29,\n  \"gender\": \"FEMALE\",\n  \"address\": \"Calle 45 #10-22\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/patients' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"P002\",\"name\":\"Maria Gomez\",\"age\":29,\"gender\":\"FEMALE\",\"address\":\"Calle 45 #10-22\"}'"
+        },
+        {
+          "name": "Create Patient - Carlos Perez",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"P003\",\n  \"name\": \"Carlos Perez\",\n  \"age\": 42,\n  \"gender\": \"MALE\",\n  \"address\": \"Av. Libertador 123\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/patients' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"P003\",\"name\":\"Carlos Perez\",\"age\":42,\"gender\":\"MALE\",\"address\":\"Av. Libertador 123\"}'"
+        },
+        {
+          "name": "Create Patient - Ana Martinez",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"P004\",\n  \"name\": \"Ana Martinez\",\n  \"age\": 51,\n  \"gender\": \"FEMALE\",\n  \"address\": \"Cra 7 #80-12\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/patients' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"P004\",\"name\":\"Ana Martinez\",\"age\":51,\"gender\":\"FEMALE\",\"address\":\"Cra 7 #80-12\"}'"
+        },
+        {
+          "name": "Create Patient - Luis Rodriguez",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"P005\",\n  \"name\": \"Luis Rodriguez\",\n  \"age\": 18,\n  \"gender\": \"MALE\",\n  \"address\": \"Cll 9 #12-34\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/patients' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"P005\",\"name\":\"Luis Rodriguez\",\"age\":18,\"gender\":\"MALE\",\"address\":\"Cll 9 #12-34\"}'"
+        },
+        {
+          "name": "Get Patient by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/patients/{{patientId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/patients/P001'"
+        },
+        {
+          "name": "Get All Patients",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/patients" },
+          "description": "curl --request GET '{{baseUrl}}/api/patients'"
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/patients/{{patientId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Updated\",\n  \"age\": 36\n}"
+            }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/patients/P001' \\\n--header 'Content-Type: application/json' \\\n--data '{"name":"John Updated","age":36}'"
+        },
+        {
+          "name": "Delete Patient",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/patients/{{patientId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/patients/P001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/doctors",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"D001\",\n  \"name\": \"Dr. House\",\n  \"specialtyId\": \"S001\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/doctors' \\\n--header 'Content-Type: application/json' \\\n--data '{\"id\":\"D001\",\"name\":\"Dr. House\",\"specialtyId\":\"S001\"}'"
+        },
+        {
+          "name": "Create Doctor - Dra. Maria Silva",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/doctors",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"D002\",\n  \"name\": \"Dra. Maria Silva\",\n  \"specialtyId\": \"S002\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/doctors' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"D002\",\"name\":\"Dra. Maria Silva\",\"specialtyId\":\"S002\"}'"
+        },
+        {
+          "name": "Create Doctor - Dr. Carlos Ruiz",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/doctors",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"D003\",\n  \"name\": \"Dr. Carlos Ruiz\",\n  \"specialtyId\": \"S003\"\n}"
+            }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/doctors' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"D003\",\"name\":\"Dr. Carlos Ruiz\",\"specialtyId\":\"S003\"}'"
+        },
+        {
+          "name": "Get Doctor by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/doctors/{{doctorId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/doctors/D001'"
+        },
+        {
+          "name": "Get All Doctors",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/doctors" },
+          "description": "curl --request GET '{{baseUrl}}/api/doctors'"
+        },
+        {
+          "name": "Update Doctor",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/doctors/{{doctorId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Dr. Updated\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/doctors/D001' \\\n--header 'Content-Type: application/json' \\\n--data '{"name":"Dr. Updated"}'"
+        },
+        {
+          "name": "Delete Doctor",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/doctors/{{doctorId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/doctors/D001'"
+        },
+        {
+          "name": "Get Doctors by Specialty",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/doctors/specialty/{{specialtyId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/doctors/specialty/S001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Nurses",
+      "item": [
+        {
+          "name": "Create Nurse",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/nurses",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"N001\",\n  \"name\": \"Jane Roe\",\n  \"unit\": \"ICU\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/nurses' \\\n--header 'Content-Type: application/json' \\\n--data '{\"id\":\"N001\",\"name\":\"Jane Roe\",\"unit\":\"ICU\"}'"
+        },
+        {
+          "name": "Create Nurse - Pedro Salazar",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/nurses",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"N002\",\n  \"name\": \"Pedro Salazar\",\n  \"unit\": \"ER\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/nurses' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"N002\",\"name\":\"Pedro Salazar\",\"unit\":\"ER\"}'"
+        },
+        {
+          "name": "Create Nurse - Laura Torres",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/nurses",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"N003\",\n  \"name\": \"Laura Torres\",\n  \"unit\": \"Pediatrics\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/nurses' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"N003\",\"name\":\"Laura Torres\",\"unit\":\"Pediatrics\"}'"
+        },
+        {
+          "name": "Get Nurse by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/nurses/{{nurseId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/nurses/N001'"
+        },
+        {
+          "name": "Get All Nurses",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/nurses" },
+          "description": "curl --request GET '{{baseUrl}}/api/nurses'"
+        },
+        {
+          "name": "Update Nurse",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/nurses/{{nurseId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"unit\": \"ER\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/nurses/N001' \\\n--header 'Content-Type: application/json' \\\n--data '{"unit":"ER"}'"
+        },
+        {
+          "name": "Delete Nurse",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/nurses/{{nurseId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/nurses/N001'"
+        },
+        {
+          "name": "Get Nurses by Unit",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/nurses/unit/{{unit}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/nurses/unit/ICU'"
+        }
+      ]
+    },
+
+    {
+      "name": "Specialties",
+      "item": [
+        {
+          "name": "Create Specialty",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/specialties",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"S001\",\n  \"name\": \"Cardiology\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/specialties' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"S001\",\"name\":\"Cardiology\"}'"
+        },
+        {
+          "name": "Create Specialty - Pediatrics",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/specialties",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"S002\",\n  \"name\": \"Pediatrics\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/specialties' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"S002\",\"name\":\"Pediatrics\"}'"
+        },
+        {
+          "name": "Create Specialty - Neurology",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/specialties",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"S003\",\n  \"name\": \"Neurology\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/specialties' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"S003\",\"name\":\"Neurology\"}'"
+        },
+        {
+          "name": "Get Specialty by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/specialties/{{specialtyId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/specialties/S001'"
+        },
+        {
+          "name": "Get All Specialties",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/specialties" },
+          "description": "curl --request GET '{{baseUrl}}/api/specialties'"
+        },
+        {
+          "name": "Update Specialty",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/specialties/{{specialtyId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Cardio Updated\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/specialties/S001' \\\n--header 'Content-Type: application/json' \\\n--data '{"name":"Cardio Updated"}'"
+        },
+        {
+          "name": "Delete Specialty",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/specialties/{{specialtyId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/specialties/S001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Appointments",
+      "item": [
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/appointments",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"A001\",\n  \"patientId\": \"P001\",\n  \"doctorId\": \"D001\",\n  \"date\": \"2025-01-31T10:00:00\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/appointments' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"A001\",\"patientId\":\"P001\",\"doctorId\":\"D001\",\"date\":\"2025-01-31T10:00:00\"}'"
+        },
+        {
+          "name": "Create Appointment - P002 with D002",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/appointments",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"A002\",\n  \"patientId\": \"P002\",\n  \"doctorId\": \"D002\",\n  \"date\": \"2025-02-05T14:30:00\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/appointments' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"A002\",\"patientId\":\"P002\",\"doctorId\":\"D002\",\"date\":\"2025-02-05T14:30:00\"}'"
+        },
+        {
+          "name": "Get Appointment by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/appointments/{{appointmentId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/appointments/A001'"
+        },
+        {
+          "name": "Get All Appointments",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/appointments" },
+          "description": "curl --request GET '{{baseUrl}}/api/appointments'"
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/appointments/{{appointmentId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"date\": \"2025-02-01T09:00:00\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/appointments/A001' \\\n--header 'Content-Type: application/json' \\\n--data '{"date":"2025-02-01T09:00:00"}'"
+        },
+        {
+          "name": "Delete Appointment",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/appointments/{{appointmentId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/appointments/A001'"
+        },
+        {
+          "name": "Get Appointments by Patient",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/appointments/patient/{{patientId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/appointments/patient/P001'"
+        },
+        {
+          "name": "Get Appointments by Doctor",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/appointments/doctor/{{doctorId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/appointments/doctor/D001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Medicines",
+      "item": [
+        {
+          "name": "Create Medicine",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medicines",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"M001\",\n  \"name\": \"Ibuprofen\",\n  \"manufacturer\": \"ACME Pharma\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/medicines' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"M001\",\"name\":\"Ibuprofen\",\"manufacturer\":\"ACME Pharma\"}'"
+        },
+        {
+          "name": "Create Medicine - Paracetamol",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medicines",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"M002\",\n  \"name\": \"Paracetamol\",\n  \"manufacturer\": \"HealthCorp\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/medicines' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"M002\",\"name\":\"Paracetamol\",\"manufacturer\":\"HealthCorp\"}'"
+        },
+        {
+          "name": "Create Medicine - Amoxicillin",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medicines",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"M003\",\n  \"name\": \"Amoxicillin\",\n  \"manufacturer\": \"PharmaPlus\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/medicines' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"M003\",\"name\":\"Amoxicillin\",\"manufacturer\":\"PharmaPlus\"}'"
+        },
+        {
+          "name": "Get Medicine by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medicines/{{medicineId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/medicines/M001'"
+        },
+        {
+          "name": "Get All Medicines",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medicines" },
+          "description": "curl --request GET '{{baseUrl}}/api/medicines'"
+        },
+        {
+          "name": "Update Medicine",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medicines/{{medicineId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ibuprofen 600\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/medicines/M001' \\\n--header 'Content-Type: application/json' \\\n--data '{"name":"Ibuprofen 600"}'"
+        },
+        {
+          "name": "Delete Medicine",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/medicines/{{medicineId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/medicines/M001'"
+        },
+        {
+          "name": "Get Medicines by Manufacturer",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medicines/manufacturer/{{manufacturer}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/medicines/manufacturer/ACME%20Pharma'"
+        }
+      ]
+    },
+
+    {
+      "name": "Treatments",
+      "item": [
+        {
+          "name": "Create Treatment",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/treatments",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"T001\",\n  \"patientId\": \"P001\",\n  \"description\": \"Pain management\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/treatments' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"T001\",\"patientId\":\"P001\",\"description\":\"Pain management\"}'"
+        },
+        {
+          "name": "Create Treatment - P002",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/treatments",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"T002\",\n  \"patientId\": \"P002\",\n  \"description\": \"Physiotherapy\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/treatments' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"T002\",\"patientId\":\"P002\",\"description\":\"Physiotherapy\"}'"
+        },
+        {
+          "name": "Get Treatment by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/treatments/{{treatmentId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/treatments/T001'"
+        },
+        {
+          "name": "Get All Treatments",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/treatments" },
+          "description": "curl --request GET '{{baseUrl}}/api/treatments'"
+        },
+        {
+          "name": "Update Treatment",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/treatments/{{treatmentId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"description\": \"Updated desc\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/treatments/T001' \\\n--header 'Content-Type: application/json' \\\n--data '{"description":"Updated desc"}'"
+        },
+        {
+          "name": "Delete Treatment",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/treatments/{{treatmentId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/treatments/T001'"
+        },
+        {
+          "name": "Get Treatments by Patient",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/treatments/patient/{{patientId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/treatments/patient/P001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Medical Records",
+      "item": [
+        {
+          "name": "Create Medical Record",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medical-records",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"MR001\",\n  \"patientId\": \"P001\",\n  \"notes\": \"Initial visit\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/medical-records' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"MR001\",\"patientId\":\"P001\",\"notes\":\"Initial visit\"}'"
+        },
+        {
+          "name": "Create Medical Record - P002",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medical-records",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"MR002\",\n  \"patientId\": \"P002\",\n  \"notes\": \"Allergy history\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/medical-records' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"MR002\",\"patientId\":\"P002\",\"notes\":\"Allergy history\"}'"
+        },
+        {
+          "name": "Get Medical Record by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medical-records/{{recordId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/medical-records/MR001'"
+        },
+        {
+          "name": "Get Medical Record by Patient ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medical-records/patient/{{patientId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/medical-records/patient/P001'"
+        },
+        {
+          "name": "Get All Medical Records",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/medical-records" },
+          "description": "curl --request GET '{{baseUrl}}/api/medical-records'"
+        },
+        {
+          "name": "Update Medical Record",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/medical-records/{{recordId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"notes\": \"Updated notes\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/medical-records/MR001' \\\n--header 'Content-Type: application/json' \\\n--data '{"notes":"Updated notes"}'"
+        },
+        {
+          "name": "Delete Medical Record",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/medical-records/{{recordId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/medical-records/MR001'"
+        }
+      ]
+    },
+
+    {
+      "name": "Rooms",
+      "item": [
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/rooms",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"R001\",\n  \"type\": \"ICU\",\n  \"available\": true\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/rooms' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"R001\",\"type\":\"ICU\",\"available\":true}'"
+        },
+        {
+          "name": "Create Room - ER",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/rooms",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"R002\",\n  \"type\": \"ER\",\n  \"available\": true\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/rooms' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"R002\",\"type\":\"ER\",\"available\":true}'"
+        },
+        {
+          "name": "Create Room - GENERAL",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/rooms",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"R003\",\n  \"type\": \"GENERAL\",\n  \"available\": false\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/rooms' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"R003\",\"type\":\"GENERAL\",\"available\":false}'"
+        },
+        {
+          "name": "Get Room by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rooms/{{roomId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/rooms/R001'"
+        },
+        {
+          "name": "Get All Rooms",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rooms" },
+          "description": "curl --request GET '{{baseUrl}}/api/rooms'"
+        },
+        {
+          "name": "Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/rooms/{{roomId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"available\": false\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/rooms/R001' \\\n--header 'Content-Type: application/json' \\\n--data '{"available":false}'"
+        },
+        {
+          "name": "Delete Room",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/rooms/{{roomId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/rooms/R001'"
+        },
+        {
+          "name": "Get Available Rooms",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rooms/available" },
+          "description": "curl --request GET '{{baseUrl}}/api/rooms/available'"
+        },
+        {
+          "name": "Get Rooms by Type",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rooms/type/{{type}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/rooms/type/ICU'"
+        }
+      ]
+    },
+
+    {
+      "name": "Invoices",
+      "item": [
+        {
+          "name": "Create Invoice",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/invoices",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"I001\",\n  \"patientId\": \"P001\",\n  \"amount\": 120.5,\n  \"status\": \"PENDING\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/invoices' \\\n --header 'Content-Type: application/json' \\\n --data '{\"id\":\"I001\",\"patientId\":\"P001\",\"amount\":120.5,\"status\":\"PENDING\"}'"
+        },
+        {
+          "name": "Create Invoice - P002",
+          "request": {
+            "method": "POST",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/invoices",
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"I002\",\n  \"patientId\": \"P002\",\n  \"amount\": 85.0,\n  \"status\": \"PENDING\"\n}" }
+          },
+          "description": "curl --request POST '{{baseUrl}}/api/invoices' \\\n+--header 'Content-Type: application/json' \\\n+--data '{\"id\":\"I002\",\"patientId\":\"P002\",\"amount\":85.0,\"status\":\"PENDING\"}'"
+        },
+        {
+          "name": "Get Invoice by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/invoices/{{invoiceId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/invoices/I001'"
+        },
+        {
+          "name": "Get All Invoices",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/invoices" },
+          "description": "curl --request GET '{{baseUrl}}/api/invoices'"
+        },
+        {
+          "name": "Update Invoice",
+          "request": {
+            "method": "PUT",
+            "header": [ {"key": "Content-Type", "value": "application/json"} ],
+            "url": "{{baseUrl}}/api/invoices/{{invoiceId}}",
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"PAID\"\n}" }
+          },
+          "description": "curl --request PUT '{{baseUrl}}/api/invoices/I001' \\\n--header 'Content-Type: application/json' \\\n--data '{"status":"PAID"}'"
+        },
+        {
+          "name": "Delete Invoice",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/invoices/{{invoiceId}}" },
+          "description": "curl --request DELETE '{{baseUrl}}/api/invoices/I001'"
+        },
+        {
+          "name": "Get Invoices by Patient",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/invoices/patient/{{patientId}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/invoices/patient/P001'"
+        },
+        {
+          "name": "Get Invoices by Status",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/invoices/status/{{status}}" },
+          "description": "curl --request GET '{{baseUrl}}/api/invoices/status/PENDING'"
+        }
+      ]
+    }
+  ]
+}
